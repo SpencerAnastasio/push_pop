@@ -1,0 +1,18 @@
+<% provide(:title, 'Sign Up') %>
+<h1>Sign Up</h1>
+
+<% flash.each do |key, value| %>
+  <div class="alert alert-<%= key %>"><%= value %></div>
+<% end %>
+
+<div class="row">
+  <%= form_for(@user) do |f| %>
+    <%= render 'layouts/partials/shared/error_messages', object: f.object %>
+    <%= f.text_field :username, placeholder: "Username" %>
+    <%= f.text_field :email, placeholder: "Email (with Gravatar)" %>
+    <%= f.password_field :password, placeholder: "Password" %>
+    <%= f.password_field :password_confirmation, placeholder: "Password Confirmation" %>
+    <%= f.submit "Create my account", class: "btn btn-large btn-primary" %>
+  <% end %>
+  <p>Already registered? <%= link_to "Sign in now!", signin_path %></p>
+</div>

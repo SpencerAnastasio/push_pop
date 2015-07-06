@@ -1,0 +1,14 @@
+<% provide(:title, 'New Playlist') %>
+<h1>Create A New Playlist</h1>
+
+<div class="row">
+  <section>
+    <%= form_for(@playlist) do |f| %>
+      <%= render 'layouts/partials/shared/error_messages', object: f.object %>
+      <%= f.text_field :name, placeholder: "Playlist name" %>
+      <!-- <%= f.text_field :keycode, placeholder: "Playlist keycode (optional)" %> -->
+      <h3>You can upload songs after creation.</h3>
+      <%= f.submit "Create Playlist", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </section>
+</div>

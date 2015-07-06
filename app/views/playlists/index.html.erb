@@ -1,0 +1,18 @@
+<h1>Playlist Index</h1>
+
+<%= will_paginate @playlists%>
+
+<ul class="users">
+  <% @playlists.each do |list| %>
+    <li class="every">
+      <%= link_to list.user.username, list.user %>
+      <span>Added:  </span>
+      <%= link_to list.name, list %>
+      <% if current_user.admin? && !current_user?(user) %>
+        |  <%= link_to "delete", list, method: :delete, data: { confirm: "You sure?" } %>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
+
+<%= will_paginate @playlists%>

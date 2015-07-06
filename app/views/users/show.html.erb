@@ -1,0 +1,35 @@
+<% flash.each do |key, value| %>
+  <div class="alert alert-<%= key %>"><%= value %></div>
+<% end %>
+
+<% provide(:title, @user.username) %>
+<div class="row">
+  <section>
+    <ul id="profile">
+      <li><%= gravatar_for @user %></li>
+      <li><h2><%= @user.username %></h2></li>
+      <% if current_user?(@user) %>
+        <li><p><%= link_to "Create Playlist", new_playlist_path %></p></li>
+        <li><p><%= link_to "Edit Profile", edit_user_path(current_user) %></p></li>
+      <% end %>
+    </ul>
+    <% if @user.playlists.any? %>
+      <h3>Playlists (<%= @user.playlists.count %>)</h3>
+      <div class="center">
+        <%= will_paginate @playlists %>
+        <ol class="playlists">
+          <% @user.playlists.each do |list| %>
+            <li class="every">
+              <span class="playlist"><%= link_to list.name, list %></span>
+              <% if current_user?(list.user) %>
+                <span>  ||  </span>
+                <%= link_to "delete", list, method: :delete, data: { confirm: "You sure?" }, title: list.name %>
+              <% end %>
+            </li>
+          <% end %>
+        </ol>
+        <%= will_paginate @playlists %>
+      </div>
+    <% end %>
+  </section>
+</div>

@@ -1,0 +1,9 @@
+<h1>PUSHPOP</h1>
+<% if signed_in? %>
+  <div class="row">
+  </div>
+<% else %>
+  <h3><%= link_to "Sign In", signin_path %></h3>
+  <h2>Or</h2>
+  <h3><%= link_to "Sign Up", signup_path %></h3>
+<% end %>

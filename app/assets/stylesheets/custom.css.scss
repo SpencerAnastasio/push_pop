@@ -1,0 +1,293 @@
+@import "bootstrap";
+
+/* mixins, variables, etc. */
+
+@mixin box_sizing {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* universal */
+
+.track {
+  background: gray;
+  padding:5px;
+  margin: 3px auto 3px auto;
+  text-align: center;
+  border-radius: 5px;
+  color: orange;
+}
+
+.every {
+  background: black;
+  width: 80%;
+  padding: 10px;
+  margin: 20px auto 0px auto;
+  text-align: center;
+  border-radius: 10px;
+}
+
+audio {
+  background:#666;
+  width:400px;
+  padding:20px;
+  margin-top: 20px;
+  border-radius: 8px;
+}
+
+html {
+  overflow-y: scroll;
+  body {
+    padding-top: 60px;
+    // background-color: black;
+    background-image: asset-data-url('congruent_outline.png');
+    .hero-unit{
+      background-color: #1d1d1d
+    }
+  }
+}
+
+section {
+  overflow: auto;
+}
+
+textarea {
+  resize: vertical;
+  width: 65% !important;
+}
+
+.center {
+  text-align: center;
+  h1 {
+    margin-bottom: 10px;
+  }
+}
+
+.hero-unit{
+  padding: 30px !important;
+  line-height: 0px !important;
+}
+/* typography */
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1;
+  color: white !important;
+}
+
+h1 {
+  font-size: 3em;
+  letter-spacing: -2px;
+  // margin-bottom: 30px;
+  text-align: center;
+  // border-bottom: 1px solid $grayLighter;
+}
+
+h2 {
+  font-size: 1.2em;
+  letter-spacing: -1px;
+  // margin-bottom: 30px;
+  text-align: center;
+  font-weight: normal;
+  // color: #999;
+}
+
+h3 {
+  text-align: center;
+}
+
+p {
+  font-size: 1.1em;
+  line-height: 1.7em;
+}
+
+/* header */
+
+#logo {
+  float: left;
+  margin-right: 10px;
+  font-size: 1.7em;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  padding-top: 9px;
+  font-weight: bold;
+  line-height: 1;
+  &:hover {
+    color: #fff;
+    text-decoration: none;
+  }
+}
+
+// .navbar {
+//   .nav {
+//     li {
+//       a {
+//         color: white;
+//         background: gray;
+//         border-radius: 10px;
+//         &.hover {
+//           text-decoration: none;
+//         }
+//       }
+//     }
+//   }
+// }
+//
+// .navbar-inner {
+//   background:black !important;
+//   border-bottom: 0px
+// }
+//
+// .dropdown, .dropdown-toggle {
+//   background: gray;
+//   border-radius: 10px;
+//   &.hover {
+//     text-decoration: none;
+//   }
+// }
+
+/* footer */
+
+footer {
+  margin-top: 45px;
+  padding-top: 5px;
+  border-top: 1px solid #eaeaea;
+  color: #999;
+  ul {
+    list-style: none;
+    margin: auto;
+    padding: auto;
+    text-align:center;
+    li {
+      display: inline;
+      // margin-left: 10px;
+      a{
+        // display: inline-block;
+        padding: 10px;
+        color: #555;
+        // text-decoration: none;
+        &:hover {
+          color: #222;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
+
+/* miscellaneous */
+
+.debug_dump {
+  clear: both;
+  float: left;
+  width: 100%;
+  margin-top: 45px;
+  @include box_sizing;
+}
+
+.grav {
+  // border-top: 1px solid black;
+  // margin-top: 20px;
+}
+
+#profile {
+  list-style: none;
+}
+
+/* sidebar */
+
+section {
+  &:first-child {
+    border: 0;
+    padding-top: 0;
+  }
+  h2 {
+    font-size: 2em;
+    font-weight: bold;
+    letter-spacing: -1px;
+    margin-bottom: 3px;
+    margin-top: 0px;
+  }
+}
+
+.gravatar {
+  border-radius: 30px;
+  margin: 0px 1px 10px 1px;
+}
+
+/* forms */
+
+.alert {
+  text-align: center;
+}
+
+input, textarea, select, .uneditable-input {
+  border: 1px solid #bbb;
+  width: 80%;
+  margin-bottom: 15px;
+  @include box_sizing;
+}
+
+input {
+  height: auto !important;
+}
+
+label {
+  text-align: left;
+}
+
+.btn {
+  width: 50% !important;
+}
+
+#error_explanation {
+  color: #f00;
+  ul {
+    list-style: none;
+    margin: 0px;
+  }
+}
+
+.field_with_errors {
+  @extend .control-group;
+  @extend .error;
+}
+
+/* Users index */
+
+.users {
+  text-align: center;
+  list-style: none;
+  // margin: 0;
+  li {
+    // text-align: left;
+    overflow: auto;
+    // padding: 10px 0;
+    // border-top: 1px solid $grayLighter;
+    &:last-child {
+      // border-bottom: 1px solid $grayLighter;
+    }
+  }
+}
+
+/* playlists */
+
+.playlists {
+  list-style: none;
+  text-align: center;
+  // margin: 10px 0 0 0;
+  li {
+    // padding: 10px 0;
+    // border-top: 1px solid #e8e8e8;
+  }
+}
+
+.timestamp {
+  color: $grayLight;
+}
+
+textarea {
+  height: 100px;
+  margin-bottom: 5px;
+}

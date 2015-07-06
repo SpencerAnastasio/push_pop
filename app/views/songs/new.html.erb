@@ -1,0 +1,12 @@
+<h3>Add a track to <%= @playlist.name %></h3>
+
+<div class="row">
+  <%= form_for(@song, :multipart => true) do |f| %>
+    <%= render 'layouts/partials/shared/error_messages', object: f.object %>
+    <%= f.text_field :title, placeholder: "Title" %>
+    <%= f.text_field :artist, placeholder: "Artist" %>
+    <%= f.hidden_field :playlist_id, :value => params[:playlist_id] %>
+    <%= f.file_field :path %>
+    <%= f.submit "Add your track", class: "btn btn-large btn-primary" %>
+  <% end %>
+</div>

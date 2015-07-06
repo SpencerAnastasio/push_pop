@@ -1,0 +1,16 @@
+<% flash.each do |key, value| %>
+  <div class="alert alert-<%= key %>"><%= value %></div>
+<% end %>
+
+<% provide(:title, "Sign In") %>
+<h1>Sign In</h1>
+
+<div class="row">
+  <%= form_for(:session, url: sessions_path) do |f| %>
+    <%= f.text_field :email, placeholder: "Email (with Gravatar)" %>
+    <%= f.password_field :password, placeholder: "Password" %>
+    <%= f.submit "Sign in to PUSHPOP", class: "btn btn-large btn-primary" %>
+  <% end %>
+
+  <p>New user? <%= link_to "Sign up now!", signup_path %></p>
+</div>

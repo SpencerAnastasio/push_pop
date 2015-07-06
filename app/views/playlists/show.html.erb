@@ -1,0 +1,26 @@
+<% flash.each do |key, value| %>
+  <div class="alert alert-<%= key %>"><%= value %></div>
+<% end %>
+<h2><%= link_to @playlist.user.username, @playlist.user %></h2>
+<h1><%= @playlist.name %></h1>
+
+<%= link_to "Add A Track", new_song_path(:playlist_id => @playlist.id), class: "btn btn-large btn-primary" %>
+
+<% if @playlist.songs.any? %>
+  <audio id="audio" preload="auto" tabindex="0" controls="" ></audio>
+  <h3>Tracks (<%= @playlist.songs.count %>)</h3>
+  <ul class="playlists" id="playlist">
+    <% @playlist.songs.each do |song| %>
+      <li class="active every">
+        <span class="playlist"><%= link_to song.user.username, song.user %> added:</span>
+        <span class="timestamp">
+          <a class="track" href="<%= song.path %>"><%= song.title %></a> by: <%= song.artist %>
+        </span>
+        <% if current_user?(song.playlist.user) || current_user?(song.user) %>
+          <span>  ||  </span>
+          <%= link_to "delete", song, method: :delete, data: { confirm: "You sure?" }, title: song.title %>
+        <% end %><br>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
