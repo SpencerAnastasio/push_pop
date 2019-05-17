@@ -1,4 +1,4 @@
 PushPop
 =======
 
-A Rails soundtrack application that lets the user be the DJ and vote on what tracks get spun.
+A Rails soundtrack application that lets the party be the DJ and vote on what tracks are spun.
